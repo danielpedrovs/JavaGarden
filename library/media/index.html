@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java Garden</title>
+  <link rel="stylesheet" href="/library/utility/styles.css" />
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <header>
+        <!-- Hamburger Icon -->
+        <div class="hamburger-menu" id="hamburger-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+    
+        <!-- Header Buttons (Menu) -->
+        <div class="header-buttons" id="header-buttons">
+          <button id="homeBtn">Home</button>
+          <button id="aboutBtn">About</button>
+          <button id="loginBtn">Login</button>
+          <button id="newUserBtn">New User</button>
+        </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Turning Coffee into Green Gold</h1>
+    <p>Join us in making a sustainable change with coffee grounds!</p>
+    <form id="find-partner-form">
+      <input type="text" id="postcode" placeholder="Enter your postcode" />
+      <button type="submit">Find a JG Partner</button>
+    </form>
+  </section>
+
+  <!-- How it Works Section -->
+  <section class="how-it-works-container">
+    <div class="how-it-works">
+      <h2 class="centered-heading">How it Works</h2>
+      <ul class="spaced-list">
+        <li>subscribe to our community.</li>
+          <li> Find a local coffee business near you.</li>
+        <li>Collect used coffee grounds.</li>
+        <li>Use them for your garden or composting.</li>
+        <li>get rewards and JavaGcoins.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Interactive Map Section (Placeholder for now) -->
+  <section class="map-section">
+    <h2>Find Partners Near You</h2>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.843821132508!2d144.9631577153181!3d-37.81410797975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf0727cbb743d4b17!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sau!4v1611813006532!5m2!1sen!2sau"
+        width="100%"
+        height="400"
+        style="border:0; border-radius: 12px;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Java Garden | All rights reserved</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Find Partner Form Interaction
+document.getElementById('find-partner-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const postcode = document.getElementById('postcode').value.trim();
+    alert(`Searching for partners near: ${postcode}`);
+    // Here, you could integrate an API or backend service for searching local partners
+  });
+
+  // Get elements
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const headerButtons = document.getElementById('header-buttons');
+
+// Toggle the active class on click
+hamburgerMenu.addEventListener('click', function() {
+  headerButtons.classList.toggle('active');
+});
+
+function initMap() {
+    const center = { lat: -23.5505, lng: -46.6333 }; // Example: São Paulo
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 12,
+      center: center,
+    });
+
+    // Optional: Add a marker
+    const marker = new google.maps.Marker({
+      position: center,
+      map: map,
+    });
+  }
+  </script>
+  <script async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+</body>
+</html>
